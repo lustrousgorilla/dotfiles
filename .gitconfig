@@ -1,0 +1,9 @@
+[user]
+  name = Gabriel Arrillaga
+  email = gabriel.arrillaga@protonmail.com
+
+[core]
+  editor = "emacs -nw"
+  excludesfile = /Users/gabriel/.gitignore
+  autocrlf = false
+  safecrlf = true
