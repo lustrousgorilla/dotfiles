@@ -1,0 +1,22 @@
+## OS generated files ##
+########################
+.DS_Store
+.Trashes
+.Spotlight-V100
+
+## Logs and databases ##
+########################
+*.log
+*.sql
+*.sqlite
+
+## Packages ##
+##############
+*.zip
+*.tar
+*.gz
+*.rar
+*.jar
+*.dmg
+*.iso
+*.7z
