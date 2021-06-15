@@ -48,3 +48,31 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+(package! aggressive-indent)
+;;(package! treemacs-persp)
+;;(package! company-box)
+
+(package! unfill)
+
+;; (package! ws-butler :disable t)
+(disable-packages! ws-butler)
+
+(package! flycheck-pos-tip)
+(package! mode-local)
+(package! undo-tree)
+
+;; (package! elixir-mode)
+;; (package! flycheck-credo)
+;; (package! exunit)
+;; (package! dap-mode)
+
+;; https://emacs.nasy.moe/
+
+;; https://github.com/alphapapa/magit-todos#installation
+;; already installed with Doom it turns out
+;; (package! async)
+;; (package! dash)
+;; (package! f)
+;; (package! pcre2el)
+;; (package! s)
+;; (package! magit-todos)
