@@ -59,7 +59,10 @@
 
 (package! flycheck-pos-tip)
 (package! mode-local)
-(package! undo-tree)
+(package! helm-ag) ;; because the built-in ones are truncating results
+;;(package! undo-tree)
+
+; (package! exec-path-from-shell)
 
 ;; (package! elixir-mode)
 ;; (package! flycheck-credo)

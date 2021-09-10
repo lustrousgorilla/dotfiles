@@ -20,10 +20,13 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       company           ; the ultimate code completion backend
-       (helm +fuzzy)       ; the *other* search engine for love and life
+       company      ; the ultimate code completion backend
+       ;; +tng enables completion uing only TAB (incompatible with +childframe)
+       (helm +fuzzy +icons); the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;(ivy +fuzzy)      ; a search engine for love and life
+       ; ^+prescient
+       ; TODO ivy +lsp, treemacs +lsp ?
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -41,9 +44,9 @@
        ;;nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
-       (popup +all)      ; tame sudden yet inevitable temporary windows
+       (popup +all + defaults)      ; tame sudden yet inevitable temporary windows
        ;;tabs              ; a tab bar for Emacs
-       treemacs            ; a project drawer, like neotree but cooler
+       (treemacs +lsp)     ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
@@ -52,6 +55,7 @@
        ;;zen               ; distraction-free coding or writing
 
        :editor
+       ;; TODO try disabling this to get magit to not use evil keybindings?
        evil              ; come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
@@ -69,7 +73,8 @@
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
-       ;;undo            ; persistent, smarter undo for your inevitable mistakes
+       ;; TODO can't figure out how to disable the auto-diff buffer with doom-managed undo 
+       (undo +tree)      ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -93,7 +98,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       ;;lsp
+       (lsp +peek)
        (magit +forge)      ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -119,7 +124,8 @@
        ;;csharp            ; unity, .NET, and mono shenanigans
        ;;data              ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
-       (elixir +peek); TODO? +lsp ; erlang done right
+       (elixir +lsp)       ; erlang done right
+       ;; ^ looks like +peek flag is supposed to go in lsp not here
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
        erlang            ; an elegant language for a more civilized age
@@ -184,3 +190,11 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+; (global-visual-line-mode t)
+;; (global-visual-fill-column-mode)
+;; (setq-default fill-column 120)
+; https://github.com/hlissner/doom-emacs/pull/1906/files
+
+; (setq evil-respect-visual-line-mode t)
+
