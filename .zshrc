@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git asdf mix node yarn colorize colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,3 +99,40 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias blockfi="cd ~/code/blockfi/"
+alias mystique="cd ~/code/blockfi/blockfi-mystique/"
+
+
+export EDITOR="emacs -nw"
+
+export ERL_AFLAGS="-kernel shell_history enabled"
+export KERL_CONFIGURE_OPTIONS="--disable-hipe --disable-debug --disable-silent-rules"
+export KERL_BUILD_DOCS=no
+# ^ == yes => makes following entries default to yes
+# export KERL_INSTALL_HTMLDOCS=yes
+# export KERL_INSTALL_MANPAGES=yes
+
+# Doom Emacs
+export PATH=$PATH:~/.emacs.d/bin
+# ASDF
+export PATH=$PATH:~/.asdf/bin
+# LSP
+# export PATH=$PATH:~/elixir-ls/release
+
+# Python / Pip
+# export PATH="$(brew --prefix)/opt/python/libexec/bin:$PATH"
+# Postgres
+# export PATH=/Applications/Postgres.app/Contents/Versions/10/bin:$PATH
+
+export PATH="$HOME/.asdf/bin:$PATH"
+# Hook direnv into your shell.
+eval "$(asdf exec direnv hook zsh)"
+# eval "$(direnv hook zsh)"
+
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/direnv
+# A shortcut for asdf managed direnv.
+direnv() { asdf exec direnv "$@"; }
+
+# if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#     source /etc/profile.d/vte.sh
+# fi
